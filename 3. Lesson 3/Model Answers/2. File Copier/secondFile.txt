@@ -1,0 +1,1 @@
+Create a program that asks the user for the names of two files. Read the content from the first file and write it to the second file.
