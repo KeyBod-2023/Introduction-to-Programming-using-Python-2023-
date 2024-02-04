@@ -1,0 +1,1 @@
+Write a function that takes a filename as an argument and prints the contents of the file. Then, ask the user for a filename and use the function to display the contents.
