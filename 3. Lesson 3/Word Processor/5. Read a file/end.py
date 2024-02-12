@@ -3,5 +3,3 @@ def read_from_text_file(filename):
         content = file.read()
         print(content)
 
-
-read_from_text_file("testing.txt")
