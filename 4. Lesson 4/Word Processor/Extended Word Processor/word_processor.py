@@ -71,11 +71,11 @@ def main():
             else:
                 break
         is_login_successful = True
-        write_to_text_file(list_of_users_file, username, False)
+        add_text_to_existing_file(list_of_users_file, username + "\n", False)
 
     while is_login_successful:
         user_history_file = username + ".txt"
-        create_a_text_file(user_history_file, False)
+        add_text_to_existing_file(user_history_file, "Login", False)
 
         print("\nWord Processor Menu:")
         print("1. Create a new text file")
@@ -91,46 +91,52 @@ def main():
         user_action = ''
 
         if choice == '1':
-            user_action = '1. Create a new text file'
+            user_action = '1. Create a new text file\n'
             user_filename = input("Enter the name of the file:\n")
             create_a_text_file(user_filename, True)
+            add_text_to_existing_file(user_history_file, user_action, False)
 
         elif choice == '2':
-            user_action = '2. Write to a text file'
+            user_action = '2. Write to a text file\n'
             user_exiting_filename = input("Enter the name of the file:\n")
             user_text_to_write = input("Enter the text that you would like to write:\n")
             write_to_text_file(user_exiting_filename, user_text_to_write, True)
+            add_text_to_existing_file(user_history_file, user_action, False)
 
         elif choice == '3':
-            user_action = "3. Add text to an existing text file"
+            user_action = "3. Add text to an existing text file\n"
             user_exiting_filename = input("Enter the name of the file:\n")
             user_text_to_add = input("Enter the text that you would like to add:\n")
             add_text_to_existing_file(user_exiting_filename, user_text_to_add, True)
+            add_text_to_existing_file(user_history_file, user_action, False)
 
         elif choice == '4':
-            user_action = "4. Delete a file"
+            user_action = "4. Delete a file\n"
             user_file_to_delete = input("Enter the name of the file:\n")
             delete_file(user_file_to_delete, True)
+            add_text_to_existing_file(user_history_file, user_action, False)
 
         elif choice == '5':
-            user_action = "5. Read a file"
+            user_action = "5. Read a file\n"
             user_file_to_read = input("Enter the name of the file:\n")
             read_from_text_file(user_file_to_read)
+            add_text_to_existing_file(user_history_file, user_action, False)
 
         elif choice == '6':
-            user_action = "6. View history"
+            user_action = "6. View history\n"
+            print("Here is your history:")
             read_from_text_file(user_history_file)
+            print("=== This is the end ===")
+            add_text_to_existing_file(user_history_file, user_action, False)
 
         elif choice == '7':
-            user_action = "6. Exit"
+            user_action = "6. Exit\n"
             is_login_successful = False
             print("Exiting Word Processor. Goodbye!")
+            add_text_to_existing_file(user_history_file, user_action, False)
 
         else:
-            user_action = "Entered invalie choice"
+            user_action = "Entered invalid choice\n"
             print("Invalid choice. Please enter a number between 1 and 6.")
-
-        write_to_text_file(user_history_file, user_action, False)
-
-
+            add_text_to_existing_file(user_history_file, user_action, False)
 main()
