@@ -75,7 +75,7 @@ def main():
 
     while is_login_successful:
         user_history_file = username + ".txt"
-        add_text_to_existing_file(user_history_file, "Login", False)
+        add_text_to_existing_file(user_history_file, "Login\n", False)
 
         print("\nWord Processor Menu:")
         print("1. Create a new text file")
